@@ -24,3 +24,58 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  /* Mood color tokens */
+  --mood-positive: #22c55e;
+  --mood-negative: #ef4444;
+  --mood-neutral: #9ca3af;
+  --mood-excited: #3b82f6;
+  --mood-calm: #14b8a6;
+  --mood-energetic: #f59e0b;
+  --mood-sad: #6366f1;
+  --mood-angry: #f43f5e;
+
+  /* Surfaces */
+  --card-bg: color-mix(in oklab, var(--background), #000 0%);
+  --card-border: color-mix(in oklab, var(--foreground), transparent 85%);
+}
+
+/***** Micro-interactions *****/
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+.chip {
+  border-radius: 9999px;
+  border: 1px solid var(--card-border);
+  background: color-mix(in oklab, var(--card-bg), #fff 2%);
+  transition: transform .12s ease, background .2s ease, border-color .2s ease;
+}
+.chip:active { transform: scale(.98) }
+.chip[aria-pressed="true"] {
+  border-color: color-mix(in oklab, var(--foreground), transparent 70%);
+  background: color-mix(in oklab, var(--card-bg), var(--foreground) 6%);
+}
+
+/***** Skeletons *****/
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--foreground), transparent 92%);
+}
+.skeleton::after {
+  content: "";
+  position: absolute; inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
