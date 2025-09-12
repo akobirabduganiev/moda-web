@@ -1,0 +1,27 @@
+{
+  "mood.HAPPY": "Счастлив",
+  "mood.SAD": "Грустный",
+  "mood.TIRED": "Уставший",
+  "mood.ANGRY": "Злой",
+  "mood.CALM": "Спокойный",
+  "mood.EXCITED": "Взволнованный",
+  "mood.NEUTRAL": "Нейтральный",
+  "mood.POSITIVE": "Позитивный",
+  "mood.ENERGETIC": "Энергичный",
+
+  "title.live": "Сегодняшняя общая статистика",
+  "title.top": "Топ настроений",
+  "title.trend7": "Последние 7 дней",
+  "title.world": "Сегодня в мире",
+
+  "today": "Сегодня",
+  "changeTomorrow": "изменить завтра",
+  "share": "Поделиться",
+  "noDataYet": "Данных пока нет",
+  "scope": "Область",
+  "date": "Дата",
+  "total": "Всего",
+  "status": "Статус",
+  "controls.byCountry": "По странам",
+  "controls.todayMood": "Сегодняшнее настроение"
+}

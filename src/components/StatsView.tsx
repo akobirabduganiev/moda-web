@@ -15,6 +15,8 @@ import Line7Days from "@/components/charts/Line7Days";
 import ShareModal from "@/components/ShareModal";
 import { fetchMoodTypes, submitMood, ApiError, fetchMoodStatus, buildShareSvgUrl } from "@/lib/api";
 import type { MoodTypeDto, TotalItem } from "@/lib/types";
+import { t } from "@/lib/i18n";
+import { getMoodMeta } from "@/lib/moods";
 
 const LiveChart = dynamic(() => import("@/components/LiveChart"), { ssr: false, loading: () => <div className="skeleton h-[300px] rounded" /> });
 
@@ -168,8 +170,8 @@ export default function StatsView() {
       {/* Control row under navbar */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
         <div className="flex items-center gap-2">
-          <div className="chip px-2 py-1 text-xs">Davlatlar bo'yicha</div>
-          <div className="chip px-2 py-1 text-xs">Bugungi kayfiyat</div>
+          <div className="chip px-2 py-1 text-xs">{t('controls.byCountry', locale)}</div>
+          <div className="chip px-2 py-1 text-xs">{t('controls.todayMood', locale)}</div>
         </div>
         <div className="flex items-center gap-3">
           <CountrySelect value={country} onChange={(c) => { setInlineError(null); setCountry(c); }} locale={locale} />
@@ -183,9 +185,12 @@ export default function StatsView() {
             {loadingTypes ? (
               Array.from({ length: 8 }).map((_, i) => <div key={i} className="skeleton h-9 w-24 rounded-full" />)
             ) : (
-              moodTypes.map((t) => (
-                <MoodChip key={t.code} label={t.label} emoji={t.emoji} active={submitting === t.code} onClick={() => onChooseMood(t.code)} />
-              ))
+              moodTypes.map((t) => {
+                const meta = getMoodMeta(t.code, locale);
+                return (
+                  <MoodChip key={t.code} label={meta.label} emoji={t.emoji || meta.emoji} active={submitting === t.code} onClick={() => onChooseMood(t.code)} />
+                );
+              })
             )}
           </div>
           {inlineError && <div className="text-sm text-red-600 mt-1">{inlineError}</div>}
@@ -202,10 +207,10 @@ export default function StatsView() {
 
       {/* Stat tiles + SSE badge */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
-        <StatTile label="Scope" value={data?.scope ?? "—"} subtle={connecting} />
-        <StatTile label="Date" value={data?.date ?? "—"} subtle={connecting} />
-        <StatTile label="Total" value={(optimistic?.totalCount || data?.totalCount)?.toLocaleString?.() || "—"} subtle={connecting} />
-        <StatTile label="Status" value={<SseBadge status={status} />} />
+        <StatTile label={t('scope', locale)} value={data?.scope ?? "—"} subtle={connecting} />
+        <StatTile label={t('date', locale)} value={data?.date ?? "—"} subtle={connecting} />
+        <StatTile label={t('total', locale)} value={(optimistic?.totalCount || data?.totalCount)?.toLocaleString?.() || "—"} subtle={connecting} />
+        <StatTile label={t('status', locale)} value={<SseBadge status={status} />} />
       </div>
 
       {error && (
@@ -215,7 +220,7 @@ export default function StatsView() {
       {/* Cards grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
         <div className="card p-4">
-          <h3 className="font-medium mb-2">Bugungi umumiy statistika</h3>
+          <h3 className="font-medium mb-2">{t('title.live', locale)}</h3>
           {totalsForDisplay ? <PieToday totals={totalsForDisplay} /> : <div className="skeleton h-[280px] rounded" />}
         </div>
         <div className="card p-4">

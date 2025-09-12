@@ -1,0 +1,27 @@
+{
+  "mood.HAPPY": "Happy",
+  "mood.SAD": "Sad",
+  "mood.TIRED": "Tired",
+  "mood.ANGRY": "Angry",
+  "mood.CALM": "Calm",
+  "mood.EXCITED": "Excited",
+  "mood.NEUTRAL": "Neutral",
+  "mood.POSITIVE": "Positive",
+  "mood.ENERGETIC": "Energetic",
+
+  "title.live": "Today's overall stats",
+  "title.top": "Top moods",
+  "title.trend7": "Last 7 days",
+  "title.world": "Today world",
+
+  "today": "Today",
+  "changeTomorrow": "change tomorrow",
+  "share": "Share",
+  "noDataYet": "No data yet",
+  "scope": "Scope",
+  "date": "Date",
+  "total": "Total",
+  "status": "Status",
+  "controls.byCountry": "By country",
+  "controls.todayMood": "Today's mood"
+}

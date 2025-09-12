@@ -1,0 +1,27 @@
+{
+  "mood.HAPPY": "Baxtli",
+  "mood.SAD": "Qayg'uli",
+  "mood.TIRED": "Charchagan",
+  "mood.ANGRY": "Jahldor",
+  "mood.CALM": "Sokin",
+  "mood.EXCITED": "Hayajonli",
+  "mood.NEUTRAL": "Neytral",
+  "mood.POSITIVE": "Ijobiy",
+  "mood.ENERGETIC": "Jo'shqin",
+
+  "title.live": "Bugungi umumiy statistika",
+  "title.top": "Top kayfiyatlar",
+  "title.trend7": "Oxirgi 7 kun",
+  "title.world": "Bugun dunyo",
+
+  "today": "Bugun",
+  "changeTomorrow": "o'zgartirish – ertaga",
+  "share": "Ulashish",
+  "noDataYet": "Hozircha ma'lumot yo'q",
+  "scope": "Qamrov",
+  "date": "Sana",
+  "total": "Jami",
+  "status": "Holat",
+  "controls.byCountry": "Davlatlar bo'yicha",
+  "controls.todayMood": "Bugungi kayfiyat"
+}

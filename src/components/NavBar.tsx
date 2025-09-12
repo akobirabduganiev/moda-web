@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 export default function NavBar() {
   const { accessToken, logout } = useAuth();
@@ -17,6 +18,7 @@ export default function NavBar() {
           <span className="text-sm text-gray-500">Live</span>
         </div>
         <div className="flex items-center gap-3">
+          <LocaleSwitcher />
           {accessToken ? (
             <button
               onClick={logout}
